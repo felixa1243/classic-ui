@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.center-container {
+    @apply pr-4 pl-4 mx-auto min-[768px]:w-[750px] min-[992px]:w-[970px] min-[1200px]:w-[1170px];
+}
