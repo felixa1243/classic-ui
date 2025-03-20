@@ -12,7 +12,11 @@
     "vite": "^6.2.0"
   },
   "dependencies": {
+    "@alpinejs/focus": "^3.14.9",
     "@tailwindcss/vite": "^4.0.14",
+    "alpinejs": "^3.14.9",
+    "aos": "^2.3.4",
+    "iconify-icon": "^2.3.0",
     "tailwindcss": "^4.0.14"
   }
 }

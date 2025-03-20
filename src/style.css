@@ -3,3 +3,27 @@
 .center-container {
     @apply pr-4 pl-4 mx-auto min-[768px]:w-[750px] min-[992px]:w-[970px] min-[1200px]:w-[1170px];
 }
+
+.btn-pill {
+    @apply focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.img-preview figure {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    margin-block: 1rem;
+}
