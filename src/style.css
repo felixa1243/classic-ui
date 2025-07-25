@@ -1,40 +1,68 @@
 @import "tailwindcss";
 
+[x-cloak] {
+    display: none !important;
+}
+
 @layer base {
+    a {
+        @apply hover:cursor-pointer text-blue-400 underline
+    }
+
+    button {
+        @apply hover:cursor-pointer
+    }
+
     .btn {
-        @apply px-5 py-3 text-center me-2 mb-2 rounded-lg bg-black text-white border inset-shadow-sm inset-shadow-gray-300 flex gap-3 items-center
+        @apply px-5 py-3 text-center me-2 mb-2 rounded-lg bg-black text-white border inset-shadow-sm inset-shadow-gray-300 flex gap-3 items-center transition-all duration-200 ease-in-out hover:bg-black/50 active:scale-95;
     }
 
     .btn-outline {
-        @apply px-5 py-2.5 text-center me-2 mb-2 rounded-lg border
+        @apply px-5 py-2.5 text-center me-2 mb-2 rounded-lg border text-black transition-all duration-200 ease-in-out hover:bg-black hover:text-white active:scale-95;
     }
 
     .btn-dashed {
-        @apply px-5 py-2.5 text-center me-2 mb-2 rounded-lg border-dashed
+        @apply px-5 py-2.5 text-center me-2 mb-2 rounded-lg border-dashed text-black transition-all duration-200 ease-in-out active:scale-95
     }
 
     .btn-pill {
-        @apply focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full px-5 py-2.5 text-center me-2 mb-2 bg-black text-white bg-black text-white inset-shadow-sm inset-shadow-gray-300
+        @apply focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full px-5 py-2.5 text-center me-2 mb-2 bg-black text-white inset-shadow-sm inset-shadow-gray-300 transition-all duration-200 ease-in-out hover:bg-black/50 active:scale-95
     }
 
     .btn-group {
-        @apply inline-flex items-center
+        @apply inline-flex items-center;
     }
 
     .btn-group button {
-        @apply px-5 py-2.5 text-center bg-black inset-shadow-sm text-white
+        @apply px-5 py-2.5 text-center bg-black text-white inset-shadow-sm transition-all duration-200 ease-in-out hover:bg-black/50 active:scale-95;
     }
 
     .btn-group button:first-child {
-        @apply rounded-l-full border-r
+        @apply rounded-l-full border-r;
     }
 
     .btn-group button:not(:last-child) {
-        @apply border-r
+        @apply border-r;
     }
 
     .btn-group button:last-child {
-        @apply rounded-r-full
+        @apply rounded-r-full;
+    }
+
+    .dropdown {
+        @apply flex flex-col gap-3
+    }
+
+    .dropdown button {
+        @apply border px-10 py-2.5 rounded-lg bg-black text-white
+    }
+
+    .dropdown .dropdown-list-items {
+        @apply flex flex-col bg-white border border-gray-300 rounded-2xl
+    }
+
+    .dropdown .dropdown-list-items li {
+        @apply px-5 py-2.5
     }
 }
 

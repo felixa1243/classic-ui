@@ -9,33 +9,222 @@
   <link rel="stylesheet" href="./src/style.css">
 </head>
 
-<body class="w-full h-screen flex justify-center items-center flex-col">
-  <div>
-    <button class="btn">OK!</button>
-    <button class="btn bg-blue-600">OK!</button>
-  </div>
-  <div>
-    <button class="btn-pill">This is pill button!</button>
-  </div>
-  <div>
-    <button class="btn-outline">This is Outline Button</button>
-    <button class="btn-outline border-red-500">This is Outline Button Too!</button>
-    <button class="btn-outline btn-dashed">This is Outline Button Too!</button>
-  </div>
-  <div class="btn-group">
-    <button type="button">Left</button>
-    <button type="button">Middle</button>
-    <button type="button">Right</button>
-  </div>
-  <div>
-    <button class="btn">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"
-        class="size-[1.2em]">
-        <path stroke-linecap="round" stroke-linejoin="round"
-          d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-      </svg>
-      Like
-    </button>
+<body class="w-full h-screen flex justify-center items-center flex-col" x-data="genericData">
+  <div class="flex flex-col gap-7 w-1/2">
+    <div class="flex flex-col gap-5 w-full">
+      <div class="flex justify-between border-b pb-3 items-center"
+        @click.stop="tabOpened = tabOpened === 'buttons' ? '' : 'buttons'">
+        <h2 class="text-3xl font-bold">Buttons</h2>
+        <span class="flex items-center duration-300" :class="tabOpened === 'buttons' ? 'rotate-180' : ''">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#000"
+              d="M8.037 11.166L14.5 22.36c.825 1.43 2.175 1.43 3 0l6.463-11.195c.826-1.43.15-2.598-1.5-2.598H9.537c-1.65 0-2.326 1.17-1.5 2.6z" />
+          </svg>
+        </span>
+      </div>
+      <div class="flex flex-col gap-7" x-show="tabOpened === 'buttons'" x-transition x-cloak>
+        <div>
+          <div class="border-b pb-5">
+            <h2 class="text-2xl font-bold">Default Button</h2>
+          </div>
+          <div class="flex">
+            <button class="btn">OK!</button>
+            <button class="btn bg-blue-600">OK!</button>
+          </div>
+        </div>
+        <div class="flex flex-col gap-5">
+          <div class="border-b pb-5">
+            <h2 class="text-2xl font-bold">Pill Button</h2>
+          </div>
+          <div>
+            <button class="btn-pill">This is pill button!</button>
+          </div>
+        </div>
+        <div class="flex flex-col gap-5">
+          <div class="border-b pb-5">
+            <h2 class="text-2xl font-bold">Outline Button</h2>
+          </div>
+          <div class="flex">
+            <button class="btn-outline">This is Outline Button</button>
+            <button class="btn-outline border-red-500 hover:bg-red-500">This is Outline Button Too!</button>
+            <button class="btn-outline btn-dashed">This is Dashed Outline Button!</button>
+          </div>
+        </div>
+        <div class="flex flex-col gap-5">
+          <div class="border-b pb-5">
+            <h2 class="text-2xl font-bold">Button Group</h2>
+          </div>
+          <div>
+            <div class="btn-group">
+              <button>Left</button>
+              <button>Middle</button>
+              <button>Right</button>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-5 items-start">
+          <div class="border-b pb-5 w-full">
+            <h2 class="text-2xl font-bold">Button with Icon</h2>
+          </div>
+          <button class="btn" x-data="{ liked: false }" @click="liked = !liked">
+            <svg xmlns="http://www.w3.org/2000/svg" :fill="liked ? 'currentColor' : 'none'" viewBox="0 0 24 24"
+              stroke-width="2.5" stroke="currentColor" class="size-[1.2em]">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+            </svg>
+            Like
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-5 w-full">
+      <div class="flex justify-between border-b pb-3 items-center"
+        @click.stop="tabOpened = tabOpened === 'dropdown' ? '' : 'dropdown'">
+        <h2 class="text-3xl font-bold">Dropdown</h2>
+        <span class="flex items-center duration-300" :class="tabOpened === 'buttons' ? 'rotate-180' : ''">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#000"
+              d="M8.037 11.166L14.5 22.36c.825 1.43 2.175 1.43 3 0l6.463-11.195c.826-1.43.15-2.598-1.5-2.598H9.537c-1.65 0-2.326 1.17-1.5 2.6z" />
+          </svg>
+        </span>
+      </div>
+      <div class="flex flex-col gap-7 items-start w-full" x-show="tabOpened === 'dropdown'" x-transition x-cloak>
+        <div class="flex flex-col gap-5 w-full items-start">
+          <div class="border-b pb-5 w-full">
+            <h2 class="text-2xl font-bold">
+              Default Dropdown
+            </h2>
+          </div>
+          <div x-data="{ open: false }" class="dropdown">
+            <button type="button" class="" @click="open = !open">
+              Click
+            </button>
+            <ul x-show="open" x-transition x-cloak class="dropdown-list-items">
+              <li>
+                item 1
+              </li>
+              <li>
+                item 2
+              </li>
+              <li>
+                item 3
+              </li>
+              <li>
+                item 4
+              </li>
+              <li>
+                <a href="https://youtu.be/dQw4w9WgXcQ?si=iiqF-iDTWaLPpEQw" target="_blank">Link Item</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-col gap-5 w-full items-start">
+          <div class="border-b pb-5 w-full">
+            <h2 class="text-2xl font-bold">
+              Left/Right Aligned Dropdown
+            </h2>
+          </div>
+          <div class="flex gap-3">
+            <div x-data="{ open: false }" class="dropdown">
+              <div class="relative">
+                <button type="button" class="relative" @click="open = !open" @click.outside="open = false">
+                  Left Aligned
+                </button>
+                <ul x-show="open" x-transition x-cloak class="dropdown-list-items absolute -left-0 top-16">
+                  <li>
+                    item 1
+                  </li>
+                  <li>
+                    item 2
+                  </li>
+                  <li>
+                    item 3
+                  </li>
+                  <li>
+                    item 4
+                  </li>
+                  <li>
+                    <a href="https://youtu.be/dQw4w9WgXcQ?si=iiqF-iDTWaLPpEQw" target="_blank">Link Item</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div x-data="{ open: false }" class="dropdown">
+              <div class="relative">
+                <button type="button" class="relative" @click="open = !open" @click.outside="open = false">
+                  Right Aligned
+                </button>
+                <ul x-show="open" x-transition x-cloak class="dropdown-list-items absolute -right-0 top-16">
+                  <li>
+                    item 1
+                  </li>
+                  <li>
+                    item 2
+                  </li>
+                  <li>
+                    item 3
+                  </li>
+                  <li>
+                    item 4
+                  </li>
+                  <li>
+                    <a href="https://youtu.be/dQw4w9WgXcQ?si=iiqF-iDTWaLPpEQw" target="_blank">Link Item</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div x-data="{ open: false }" class="dropdown">
+              <div class="relative">
+                <button type="button" class="relative" @click="open = !open" @click.outside="open = false">
+                  Left Aligned
+                </button>
+                <ul x-show="open" x-transition x-cloak class="dropdown-list-items absolute -left-0 bottom-16">
+                  <li>
+                    item 1
+                  </li>
+                  <li>
+                    item 2
+                  </li>
+                  <li>
+                    item 3
+                  </li>
+                  <li>
+                    item 4
+                  </li>
+                  <li>
+                    <a href="https://youtu.be/dQw4w9WgXcQ?si=iiqF-iDTWaLPpEQw" target="_blank">Link Item</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div x-data="{ open: false }" class="dropdown">
+              <div class="relative">
+                <button type="button" class="relative" @click="open = !open" @click.outside="open = false">
+                  Right Aligned
+                </button>
+                <ul x-show="open" x-transition x-cloak class="dropdown-list-items absolute -right-0 bottom-16">
+                  <li>
+                    item 1
+                  </li>
+                  <li>
+                    item 2
+                  </li>
+                  <li>
+                    item 3
+                  </li>
+                  <li>
+                    item 4
+                  </li>
+                  <li>
+                    <a href="https://youtu.be/dQw4w9WgXcQ?si=iiqF-iDTWaLPpEQw" target="_blank">Link Item</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <script type="module" src="/src/main.js"></script>
 </body>
