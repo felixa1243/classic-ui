@@ -1,5 +1,5 @@
 {
-  "name": "classic-ui",
+  "name": "vanilla-unstyled-ui",
   "version": "0.0.0",
   "type": "module",
   "description": "A collection of Unstyled UI components for Tailwind CSS",
