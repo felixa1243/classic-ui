@@ -9,201 +9,33 @@
   <link rel="stylesheet" href="./src/style.css">
 </head>
 
-<body x-data="{startDate:'30th Apr 2025',endDate:'30th Apr 2025',showFormTitle:true,showHTP:true,modalIsOpen: false}">
-  <div class="flex items-center justify-center w-full min-h-screen bg-slate-300">
-    <h2 class="text-4xl">HERO</h2>
+<body class="w-full h-screen flex justify-center items-center flex-col">
+  <div>
+    <button class="btn">OK!</button>
+    <button class="btn bg-blue-600">OK!</button>
   </div>
-  <div class="flex items-center justify-center w-full min-h-screen bg-slate-400">
-    <h2 class="text-4xl text-white font-bold">Section 2</h2>
+  <div>
+    <button class="btn-pill">This is pill button!</button>
   </div>
-  <!-- FORM-->
-  <div class="flex justify-center w-full min-h-screen bg-slate-500">
-    <div class="w-full py-16 flex max-lg:flex-col gap-10 px-32 max-lg:px-10">
-      <div class="w-1/2 max-lg:w-full h-full flex items-center">
-        <div class="bg-white rounded-[24px] px-6 py-5 w-full" data-aos="fade-up" data-aos-duration="600">
-          <h2 class="text-2xl font-bold mb-5">
-            How To Participate
-          </h2>
-          <div class="px-2">
-            <ol class="list-decimal">
-              <li>Lorem ipsum dolor sit amet consectetur. Vel adipiscing mauris turpis orci amet vulputate enim
-                tincidunt
-                vel.</li>
-              <li>Lorem ipsum dolor sit amet consectetur. Vel adipiscing mauris turpis orci amet vulputate enim
-                tincidunt
-                vel.</li>
-              <li>Lorem ipsum dolor sit amet consectetur. Vel adipiscing mauris turpis orci amet vulputate enim
-                tincidunt
-                vel.</li>
-            </ol>
-          </div>
-          <div class="mt-5">
-            <button x-on:click="modalIsOpen = true" type="button" class="underline hover:cursor-pointer">
-              Terms &amp; Conditions
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="w-1/2 max-lg:w-full h-full flex">
-        <div class="flex flex-col gap-12 mx-auto w-full px-10" :class="showHTP ? 'me-0 ms-auto' : 'mx-auto'">
-          <div x-show="showFormTitle">
-            <h2 class="text-6xl font-bold text-white text-center" data-aos="fade-right">Participate Now</h2>
-            <p class="text-2xl text-white text-center mt-3 text-primary" x-text="`${startDate} - ${endDate}`"
-              data-aos="fade-right" data-aos-duration="600"></p>
-          </div>
-          <div>
-            <form id="form__validate" class="bg-white px-6 pt-8 sm:px-10 sm:pt-10 lg:px-20 lg:pt-20 pb-7 rounded-[24px]"
-              action="" method="post" enctype="multipart/form-data" data-aos-duration="600" data-aos="zoom-in">
-              <div class="grid gap-7">
-                <div>
-                  <label class="block text-gray-400" for="fullname"> Full Name<span class="text-red-500">*</span>
-                  </label>
-                  <input type="text" name="fullname" id="fullname" placeholder="E.g. John Doe"
-                    class="w-full border-none rounded-md p-2 bg-gray-100" required>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-7">
-                  <div>
-                    <label class="block text-gray-400" for="email"> Email<span class="text-red-500">*</span> </label>
-                    <input type="email" name="email" id="email" placeholder="E.g. johndoe@email.com"
-                      class="w-full border-none rounded-md p-2 bg-gray-100" required>
-                  </div>
-                  <div>
-                    <label class="block text-gray-400" for="phone-number"> Phone Number<span
-                        class="text-red-500">*</span> </label>
-                    <input type="tel" name="mobile" id="phone-number" placeholder="E.g. 9867 1234"
-                      class="w-full border-none rounded-md p-2 bg-gray-100" required>
-                  </div>
-                  <div>
-                    <label class="block text-gray-400" for="receipt-no"> Receipt No.<span class="text-red-500">*</span>
-                    </label>
-                    <input type="text" name="receipt" id="receipt-no" placeholder="E.g. 0123456789"
-                      class="w-full border-none rounded-md p-2 bg-gray-100" required>
-                  </div>
-                  <div>
-                    <label class="block text-gray-400" for="purchase-value"> Purchase Value<span
-                        class="text-red-500">*</span> </label>
-                    <input type="text" name="amount" id="purchase-value" placeholder="E.g. 0"
-                      class="w-full border-none rounded-md p-2 bg-gray-100" required>
-                  </div>
-                </div>
-                <div class="flex flex-col gap-5 pb-12">
-                  <div>
-                    <label class="block text-gray-400" for="receipt-upload"> Upload Receipt<span
-                        class="text-red-500">*</span> </label>
-                    <label
-                      class="mt-3 border-2 border-dashed border-gray-300 rounded-md min-h-[200px] flex flex-col gap-2 justify-center items-center cursor-pointer form__label--upload-placeholder"
-                      for="receipt-upload">
-                      <div class="image-preview">
-                      </div>
-                      <iconify-icon width="24" icon="mingcute:upload-2-fill" id="upload-preview"></iconify-icon>
-                      <span>Click to upload</span>
-                    </label>
-                    <input type="file" name="receipt_photo" id="receipt-upload" accept="image/*" class="hidden">
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <input type="checkbox" name="tnc" id="tnc-checkbox" class="">
-                    <label for="tnc-checkbox" class="text-gray-400">
-                      By submitting this form, I agree to the
-                      <button type="button" class="underline text-primary" @click="modalIsOpen = true"> Terms &
-                        Conditions</button>
-                      of this contest
-                    </label>
-                  </div>
-                </div>
-                <div class="flex justify-center">
-                  <button type="submit"
-                    class="bg-blue-600 text-white font-bold py-2 px-8 uppercase rounded-full">Submit</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div>
+    <button class="btn-outline">This is Outline Button</button>
+    <button class="btn-outline border-red-500">This is Outline Button Too!</button>
+    <button class="btn-outline btn-dashed">This is Outline Button Too!</button>
   </div>
-  <div class="mt-auto w-full bg-slate-700 py-4">
-    <div class="center-container">
-      <p class="text-xl text-white text-center">[YEAR] @ [BRAND NAME]</p>
-    </div>
+  <div class="btn-group">
+    <button type="button">Left</button>
+    <button type="button">Middle</button>
+    <button type="button">Right</button>
   </div>
-  <div x-cloak x-show="modalIsOpen" x-transition.opacity.duration.200ms x-trap.inert.noscroll="modalIsOpen"
-    x-on:keydown.esc.window="modalIsOpen = false" x-on:click.self="modalIsOpen = false"
-    class="fixed inset-0 z-[100] flex items-end justify-center bg-black/20 p-4 pb-8 backdrop-blur-md sm:items-center lg:p-8"
-    role="dialog" aria-modal="true" aria-labelledby="defaultModalTitle">
-    <!-- Modal Dialog -->
-    <div x-show="modalIsOpen"
-      x-transition:enter="transition ease-out duration-200 delay-100 motion-reduce:transition-opacity"
-      x-transition:enter-start="opacity-0 scale-50" x-transition:enter-end="opacity-100 scale-100"
-      class="flex max-w-[600px] flex-col overflow-auto rounded-xl border border-gray-300 bg-white max-h-[80vh] no-scrollbar">
-      <!-- Dialog Header -->
-      <div class="flex items-center justify-center p-4 text-4xl relative">
-        <h3 id="defaultModalTitle" class="font-semibold tracking-wide text-black text-center">Terms &amp;
-          Conditions
-        </h3>
-        <button x-on:click="modalIsOpen = false" aria-label="close modal" class="absolute right-5">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" stroke="currentColor"
-            fill="none" stroke-width="1.4" class="w-5 h-5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-      <!-- Dialog Body -->
-      <div class="px-10 py-3">
-        <div class="px-5">
-          <ol class="list-decimal text-xl flex flex-col gap-3">
-            <li>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque quas vero cumque similique
-              iste? Eligendi dolores quod placeat nam quidem atque esse quaerat omnis! Iure molestias
-              similique
-              corporis totam amet
-            </li>
-            <li>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis id esse accusantium
-              asperiores qui ducimus saepe ex a tempore sequi, sunt doloremque similique enim, cumque hic
-              sapiente eum. Repellendus, asperiores.
-            </li>
-            <li>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt error unde dicta et
-              perspiciatis sit magnam architecto assumenda, repellendus alias aspernatur libero obcaecati
-              ipsum
-              autem iure quam consequatur eum culpa.
-            </li>
-            <li>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis qui praesentium, porro,
-              laudantium
-              saepe obcaecati optio eveniet vero cum soluta quod, atque voluptate iure iusto doloribus nam
-              iste
-              ea neque!
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nihil quisquam, suscipit temporibus
-              at in sunt ea nostrum natus expedita, ratione exercitationem dignissimos quae magnam dicta
-              beatae,
-              doloremque consequatur architecto?
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis dolores corrupti illo
-              tempore,
-              molestiae voluptas necessitatibus eum nostrum alias soluta.
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, sit?
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio nihil nulla quidem unde delectus
-              aperiam?
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, in natus excepturi
-              deserunt
-              quis, dignissimos iste maxime molestias quam alias ab culpa tempora aperiam, exercitationem
-              praesentium? Aperiam qui libero quasi tempore porro at iure exercitationem voluptatibus vero,
-              inventore eius amet praesentium ea! Et, facilis unde nemo aperiam nisi cumque perspiciatis.
-            </li>
-          </ol>
-        </div>
-      </div>
-    </div>
+  <div>
+    <button class="btn">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"
+        class="size-[1.2em]">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+      </svg>
+      Like
+    </button>
   </div>
   <script type="module" src="/src/main.js"></script>
 </body>
