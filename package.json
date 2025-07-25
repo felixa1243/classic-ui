@@ -1,13 +1,26 @@
 {
-  "name": "microsite-boilerplate-vite",
-  "private": true,
+  "name": "classic-ui",
   "version": "0.0.0",
   "type": "module",
+  "description": "A collection of Unstyled UI components for Tailwind CSS",
+  "main": "dist/index.css",
+  "style": "dist/index.css",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
+  "keywords": [
+    "css",
+    "tailwind-css",
+    "design-system",
+    "vite"
+  ],
+  "author": "Rajiph Iqbal ghandi",
+  "license": "MIT",
   "devDependencies": {
     "vite": "^6.2.0"
   },
@@ -15,8 +28,6 @@
     "@alpinejs/focus": "^3.14.9",
     "@tailwindcss/vite": "^4.0.14",
     "alpinejs": "^3.14.9",
-    "aos": "^2.3.4",
-    "iconify-icon": "^2.3.0",
     "tailwindcss": "^4.0.14"
   }
 }
