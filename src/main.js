@@ -22,11 +22,16 @@ window.addEventListener('alpine:init', () => {
 
     init() {
       const modalComponent = `
-      <div x-show="$store.modal.modalOpen" x-transition x-cloak class="modal" @click.outside="$store.modal.closeModal()">
-        <div x-html="$store.modal.modalHeader"></div>
-        <div x-html="$store.modal.modalBody" class="modal-body"></div>
-        <div x-html="$store.modal.modalFooter"></div>
-      </div>`;
+      <div x-show="$store.modal.modalOpen" x-transition x-cloak class="modal-container">
+        <div class="modal-backdrop" @click.outside="$store.modal.closeModal()">
+          <div class="modal">
+            <div x-html="$store.modal.modalHeader"></div>
+            <div x-html="$store.modal.modalBody" class="modal-body"></div>
+            <div x-html="$store.modal.modalFooter"></div>
+          </div>
+        </div>
+      </div>
+      `
       document.body.insertAdjacentHTML('beforeend', modalComponent);
     },
 
@@ -90,8 +95,7 @@ window.addEventListener('alpine:init', () => {
         || this.renderModalFooter(this.modalOkButtonText);
 
       this.modalOpen = true;
-    }
-    ,
+    },
 
     closeModal() {
       this.modalOpen = false;

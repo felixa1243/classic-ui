@@ -631,11 +631,9 @@
 
         <template id="custom-modal-body">
           <div class="px-16 w-full h-full py-7">
-            <iframe height="315" class="aspect-video mx-auto"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=8o59CjPNwxyGH5JC" title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen autoplay></iframe>
+            <video autoplay class="rounded">
+              <source src="/video-highlight.mp4" />
+            </video>
           </div>
         </template>
         <template id="custom-modal-footer">
@@ -644,8 +642,10 @@
 
       </div>
     </div>
-    <script type="module" src="/src/highlighter.js"></script>
-    <script type="module" src="/src/main.js"></script>
+
+  </div>
+  <script type="module" src="/src/highlighter.js"></script>
+  <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>
