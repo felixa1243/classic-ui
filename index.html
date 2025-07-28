@@ -588,6 +588,7 @@
         </div>
         <p class="text-gray-600 text-base">
           Or you can craft more complex modals with the following code:
+        </p>
         <div class="card w-full" x-data="codePreviewComponent('custom-trigger-modal')">
           <div class="w-full relative">
             <!-- Toggle Buttons -->
@@ -627,25 +628,43 @@
           </template>
 
         </div>
-        </p>
-
-        <template id="custom-modal-body">
-          <div class="px-16 w-full h-full py-7">
-            <iframe height="315" class="aspect-video mx-auto"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=8o59CjPNwxyGH5JC" title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen autoplay></iframe>
+        <p class="text-gray-600 text-base">Then Reference The Partials Modal with template</p>
+        <div class="card w-full" x-data="renderSourceCode('custom-modal-video')">
+          <div class="bg-[#23262E] text-white w-full rounded-lg">
+            <pre>
+              <div x-html="highlightedCode"></div>
+            </pre>
           </div>
-        </template>
+          <template id="custom-modal-video">
+            <template x-teleport="body">
+              <template id="custom-modal-body">
+                <div class="px-16 w-full h-full py-7">
+                  <video autoplay class="rounded">
+                    <source src="/video-highlight.mp4" />
+                  </video>
+                </div>
+              </template>
+            </template>
+          </template>
+
+        </div>
         <template id="custom-modal-footer">
           <div></div>
         </template>
 
       </div>
     </div>
-    <script type="module" src="/src/highlighter.js"></script>
-    <script type="module" src="/src/main.js"></script>
+
+  </div>
+  <template id="custom-modal-body">
+    <div class="px-16 w-full h-full py-7">
+      <video autoplay class="rounded">
+        <source src="/video-highlight.mp4" />
+      </video>
+    </div>
+  </template>
+  <script type="module" src="/src/highlighter.js"></script>
+  <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

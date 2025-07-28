@@ -24,7 +24,6 @@ window.addEventListener('alpine:init', () => {
                 }
 
                 this.highlightedCode = hljs.highlight(this.rawCode, { language: 'xml' }).value;
-                console.log(hljs.highlight(this.rawCode, { language: 'xml' }).value);
             },
 
             async toggleView() {
