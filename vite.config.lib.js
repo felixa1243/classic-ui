@@ -8,14 +8,9 @@ export default defineConfig({
     build: {
         lib: {
             name: 'classic-ui',
-            // **Change this:** Point the entry to your new JS entry file
             entry: resolve(__dirname, 'src/main.js'),
-            // No 'name' property needed if you're only exporting CSS.
-            // No 'fileName' needed if you are just producing CSS and not a JS bundle for the library.
         },
         outDir: 'dist',
-        // `cssCodeSplit` is `false` by default in lib mode, so you don't strictly need to set it,
-        // but it's fine to leave it for clarity.
         cssCodeSplit: false,
         cssMinify: true,
         rollupOptions: {
@@ -33,4 +28,7 @@ export default defineConfig({
         },
         emptyOutDir: true,
     },
+    optimizeDeps: {
+        include: ['alpinejs']
+    }
 });
