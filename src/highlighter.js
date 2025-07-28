@@ -1,4 +1,7 @@
-import { codeToHtml } from 'shiki';
+import hljs from 'highlight.js/lib/core';
+import xml from 'highlight.js/lib/languages/xml';
+import 'highlight.js/styles/nord.min.css';
+hljs.registerLanguage('xml', xml);
 window.addEventListener('alpine:init', () => {
     function createCodeComponent({ templateId, withToggle = false, withCopy = false }) {
         return {
@@ -10,11 +13,18 @@ window.addEventListener('alpine:init', () => {
                 const template = document.getElementById(templateId);
                 if (!template) return;
 
-                this.rawCode = template.innerHTML.trim().replace(/'/g, '"');
-                this.highlightedCode = await codeToHtml(this.rawCode, {
-                    lang: 'html',
-                    theme: 'andromeeda',
-                });
+                // Get the pre element within the template, if it exists
+                const preElement = template.querySelector('pre');
+
+                if (preElement) {
+                    this.rawCode = preElement.textContent; // Use textContent to preserve whitespace
+                } else {
+                    // Fallback if no pre tag, though this might still be single-line
+                    this.rawCode = template.innerHTML;
+                }
+
+                this.highlightedCode = hljs.highlight(this.rawCode, { language: 'xml' }).value;
+                console.log(hljs.highlight(this.rawCode, { language: 'xml' }).value);
             },
 
             async toggleView() {
@@ -22,10 +32,7 @@ window.addEventListener('alpine:init', () => {
                 this.toggle = this.toggle === 'Display' ? 'Code' : 'Display';
 
                 if (this.toggle === 'Code' && !this.highlightedCode) {
-                    this.highlightedCode = await codeToHtml(this.rawCode, {
-                        lang: 'html',
-                        theme: 'andromeeda',
-                    });
+                    this.highlightedCode = this.highlightedCode = hljs.highlight(this.rawCode, { language: 'xml' }).value;
                 }
             },
 

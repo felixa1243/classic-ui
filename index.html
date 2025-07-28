@@ -56,7 +56,9 @@
 
               <!-- Code -->
               <template x-if="toggle === 'Code'">
-                <div class="bg-[#23262E] px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                <pre>
+                  <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                </pre>
               </template>
             </div>
             <template id="basic-button">
@@ -94,7 +96,9 @@
 
               <!-- Code -->
               <template x-if="toggle === 'Code'">
-                <div class="bg-[#23262E] px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                <pre>
+                  <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                </pre>
               </template>
             </div>
             <template id="basic-button-colored"> <button class="btn bg-blue-600">This is a Button Too</button>
@@ -134,7 +138,7 @@
 
               <!-- Code -->
               <template x-if="toggle === 'Code'">
-                <div class="bg-[#23262E] px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
               </template>
             </div>
             <template id="button-pill">
@@ -175,7 +179,7 @@
 
                 <!-- Code -->
                 <template x-if="toggle === 'Code'">
-                  <div class="bg-[#23262E] px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                  <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
                 </template>
               </div>
               <template id="button-outline">
@@ -207,7 +211,7 @@
 
                 <!-- Code -->
                 <template x-if="toggle === 'Code'">
-                  <div class="bg-[#23262E] px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                  <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
                 </template>
               </div>
               <template id="button-outline-2">
@@ -239,7 +243,7 @@
 
                 <!-- Code -->
                 <template x-if="toggle === 'Code'">
-                  <div class="bg-[#23262E] px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                  <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
                 </template>
               </div>
               <template id="button-dashed">
@@ -280,12 +284,16 @@
 
               <!-- Code -->
               <template x-if="toggle === 'Code'">
-                <div class="bg-[#23262E] px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                <pre>
+                  <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                </pre>
               </template>
             </div>
             <template id="button-group">
               <div class="btn-group">
-                <button>Left</button> <button>Middle</button> <button>Right</button>
+                <button>Left</button>
+                <button>Middle</button>
+                <button>Right</button>
               </div>
             </template>
           </div>
@@ -322,7 +330,9 @@
 
               <!-- Code -->
               <template x-if="toggle === 'Code'">
-                <div class="bg-[#23262E] px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                <pre>
+                  <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                </pre>
               </template>
             </div>
             <template id="btn-icon">
@@ -385,7 +395,9 @@
 
               <!-- Code -->
               <template x-if="toggle === 'Code'">
-                <div class="bg-[#23262E] px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                <pre>
+                  <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                </pre>
               </template>
             </div>
             <template id="default-dropdown">
@@ -533,20 +545,107 @@
         </span>
       </div>
       <div class="flex flex-col gap-7 items-start w-full" x-show="tabOpened === 'modals'" x-transition x-cloack>
-        <!-- Confirmation Modal -->
-        <div class="border-b pb-5 w-full flex flex-col gap-3">
-          <h2 class="text-2xl font-bold">Confirmation Modal</h2>
-          <p class="text-base text-gray-600">
-            A modal used to confirm user actions such as deleting, saving, or submitting. Includes customizable title,
-            description, and confirm/cancel buttons.
-          </p>
+        <p class="text-gray-600 text-base">
+          In HTML, a modal (or modal dialog) is a user interface element that appears on top of the main content of a
+          webpage,
+          temporarily disabling interaction with the underlying page. Modals are commonly used to display important
+          information,
+          collect user input, or confirm actions.
+        </p>
+        A simple modal can be create with the following code:
+        <div class="card w-full" x-data="codePreviewComponent('basic-modal')">
+          <div class="w-full relative">
+            <!-- Toggle Buttons -->
+            <div class="btn-group absolute right-0">
+              <button @click="handleCopy" x-show="toggle === 'Code'">
+                <!-- Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path fill="currentColor"
+                    d="M15.24 2h-3.894c-1.764 0-3.162 0-4.255.148c-1.126.152-2.037.472-2.755 1.193c-.719.721-1.038 1.636-1.189 2.766C3 7.205 3 8.608 3 10.379v5.838c0 1.508.92 2.8 2.227 3.342c-.067-.91-.067-2.185-.067-3.247v-5.01c0-1.281 0-2.386.118-3.27c.127-.948.413-1.856 1.147-2.593s1.639-1.024 2.583-1.152c.88-.118 1.98-.118 3.257-.118h3.07c1.276 0 2.374 0 3.255.118A3.6 3.6 0 0 0 15.24 2" />
+                  <path fill="currentColor"
+                    d="M6.6 11.397c0-2.726 0-4.089.844-4.936c.843-.847 2.2-.847 4.916-.847h2.88c2.715 0 4.073 0 4.917.847S21 8.671 21 11.397v4.82c0 2.726 0 4.089-.843 4.936c-.844.847-2.202.847-4.917.847h-2.88c-2.715 0-4.073 0-4.916-.847c-.844-.847-.844-2.21-.844-4.936z" />
+                </svg>
+              </button>
+              <button :class="toggle === 'Code'? 'rounded-r-full':'rounded-full'" x-html="toggle === 'Display' 
+                                              ? `<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='currentColor' d='m12.89 3l1.96.4L11.11 21l-1.96-.4zm6.7 9L16 8.41V5.58L22.42 12L16 18.41v-2.83zM1.58 12L8 5.58v2.83L4.41 12L8 15.58v2.83z'/></svg>` 
+                                              : 'Component'" @click="toggleView()"></button>
+            </div>
+
+            <!-- Preview -->
+            <template x-if="toggle === 'Display'">
+              <div x-html="rawCode"></div>
+            </template>
+
+            <!-- Code -->
+            <template x-if="toggle === 'Code'">
+              <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+            </template>
+          </div>
+
+          <template id="basic-modal">
+            <button class="btn" @click="$store.modal.openModal()">Open Modal</button>
+          </template>
         </div>
-        <button class="btn" @click="$store.modal.openModal()">Confirmation Modal</button>
+        <p class="text-gray-600 text-base">
+          Or you can craft more complex modals with the following code:
+        <div class="card w-full" x-data="codePreviewComponent('custom-trigger-modal')">
+          <div class="w-full relative">
+            <!-- Toggle Buttons -->
+            <div class="btn-group absolute right-0">
+              <button @click="handleCopy" x-show="toggle === 'Code'">
+                <!-- Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path fill="currentColor"
+                    d="M15.24 2h-3.894c-1.764 0-3.162 0-4.255.148c-1.126.152-2.037.472-2.755 1.193c-.719.721-1.038 1.636-1.189 2.766C3 7.205 3 8.608 3 10.379v5.838c0 1.508.92 2.8 2.227 3.342c-.067-.91-.067-2.185-.067-3.247v-5.01c0-1.281 0-2.386.118-3.27c.127-.948.413-1.856 1.147-2.593s1.639-1.024 2.583-1.152c.88-.118 1.98-.118 3.257-.118h3.07c1.276 0 2.374 0 3.255.118A3.6 3.6 0 0 0 15.24 2" />
+                  <path fill="currentColor"
+                    d="M6.6 11.397c0-2.726 0-4.089.844-4.936c.843-.847 2.2-.847 4.916-.847h2.88c2.715 0 4.073 0 4.917.847S21 8.671 21 11.397v4.82c0 2.726 0 4.089-.843 4.936c-.844.847-2.202.847-4.917.847h-2.88c-2.715 0-4.073 0-4.916-.847c-.844-.847-.844-2.21-.844-4.936z" />
+                </svg>
+              </button>
+              <button :class="toggle === 'Code'? 'rounded-r-full':'rounded-full'" x-html="toggle === 'Display' 
+                                                        ? `<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='currentColor' d='m12.89 3l1.96.4L11.11 21l-1.96-.4zm6.7 9L16 8.41V5.58L22.42 12L16 18.41v-2.83zM1.58 12L8 5.58v2.83L4.41 12L8 15.58v2.83z'/></svg>` 
+                                                        : 'Component'" @click="toggleView()"></button>
+            </div>
+
+            <!-- Preview -->
+            <template x-if="toggle === 'Display'">
+              <div x-html="rawCode"></div>
+            </template>
+
+            <!-- Code -->
+            <template x-if="toggle === 'Code'">
+              <pre>
+                <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+              </pre>
+            </template>
+          </div>
+          <template id="custom-trigger-modal">
+            <button class="btn" @click="$store.modal.openModal({
+            title:'Never Gonna Give You Up',
+            bodyID:'custom-modal-body',
+            footerID:'custom-modal-footer'})"> Open Modal
+            </button>
+          </template>
+
+        </div>
+        </p>
+
+        <template id="custom-modal-body">
+          <div class="px-16 w-full h-full py-7">
+            <iframe height="315" class="aspect-video mx-auto"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=8o59CjPNwxyGH5JC" title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen autoplay></iframe>
+          </div>
+        </template>
+        <template id="custom-modal-footer">
+          <div></div>
+        </template>
+
       </div>
     </div>
-  </div>
-  <script type="module" src="/src/shiki.js"></script>
-  <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/highlighter.js"></script>
+    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

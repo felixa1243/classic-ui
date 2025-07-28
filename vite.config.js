@@ -11,7 +11,7 @@ export default defineConfig({
         rollupOptions: {
             input: [
                 resolve(__dirname, 'src/main.js'),
-                resolve(__dirname, 'src/shiki.js')
+                resolve(__dirname, 'src/highlighter.js')
             ]
         }
     },
