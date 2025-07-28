@@ -18,8 +18,17 @@ window.addEventListener('alpine:init', () => {
         modalBody: null,
         modalFooter: null,
         modalData: {},
-        setActiveTab(tab) {
-            this.tabOpened = tab
+        init() {
+            const modalComponent = `
+            <div x-show="$store.modal.modalOpen" x-transition x-cloak class="modal" @click.outside="modalOpen = false">
+    <div class="modal-header" x-html="$store.modal.modalHeader">
+    </div>
+    <div class="modal-body" x-html="$store.modal.modalBody">
+    </div>
+    <div class="modal-footer" x-html="$store.modal.modalFooter">
+    </div>
+  </div>`;
+            document.body.insertAdjacentHTML('beforeend', modalComponent);
         },
         openModal(headerID = 'default-modal-header', bodyID = 'default-modal-body', footerID = 'default-modal-footer') {
             const headerTemplate = document.querySelector('#' + headerID);
