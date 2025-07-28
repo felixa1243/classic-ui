@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/classic-ui/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vanilla Unstyled UI</title>
+  <script type="module" crossorigin src="/classic-ui/assets/index-CLg5XJit.js"></script>
+  <link rel="stylesheet" crossorigin href="/classic-ui/assets/index-wF6Kc1WZ.css">
+</head>
+
+<body class="w-full h-screen flex justify-center items-center flex-col py-16" x-data="vanilla_data">
+  <div class="flex flex-col gap-7 w-1/2 h-full">
+    <div class="flex flex-col gap-5 w-full">
+      <div class="flex justify-between border-b pb-3 items-center"
+        @click.stop="tabOpened = tabOpened === 'buttons' ? '' : 'buttons'">
+        <h2 class="text-3xl font-bold">Buttons</h2>
+        <span class="flex items-center duration-300" :class="tabOpened === 'buttons' ? 'rotate-180' : ''">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#000"
+              d="M8.037 11.166L14.5 22.36c.825 1.43 2.175 1.43 3 0l6.463-11.195c.826-1.43.15-2.598-1.5-2.598H9.537c-1.65 0-2.326 1.17-1.5 2.6z" />
+          </svg>
+        </span>
+      </div>
+      <div class="flex flex-col gap-7" x-show="tabOpened === 'buttons'" x-transition x-cloak>
+        <div>
+          <div class="border-b pb-5 flex flex-col gap-3">
+            <h2 class="text-2xl font-bold">Default Button</h2>
+            <p class="text-base text-gray-600">
+              A basic button component with default styling. It provides a neutral starting point for custom button
+              designs.
+            </p>
+          </div>
+          <div class="card mt-10" x-data="codePreviewComponent('basic-button')">
+            <div class="w-full relative">
+              <!-- Toggle Buttons -->
+              <div class="btn-group absolute right-0">
+                <button @click="handleCopy" x-show="toggle === 'Code'">
+                  <!-- Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                      d="M15.24 2h-3.894c-1.764 0-3.162 0-4.255.148c-1.126.152-2.037.472-2.755 1.193c-.719.721-1.038 1.636-1.189 2.766C3 7.205 3 8.608 3 10.379v5.838c0 1.508.92 2.8 2.227 3.342c-.067-.91-.067-2.185-.067-3.247v-5.01c0-1.281 0-2.386.118-3.27c.127-.948.413-1.856 1.147-2.593s1.639-1.024 2.583-1.152c.88-.118 1.98-.118 3.257-.118h3.07c1.276 0 2.374 0 3.255.118A3.6 3.6 0 0 0 15.24 2" />
+                    <path fill="currentColor"
+                      d="M6.6 11.397c0-2.726 0-4.089.844-4.936c.843-.847 2.2-.847 4.916-.847h2.88c2.715 0 4.073 0 4.917.847S21 8.671 21 11.397v4.82c0 2.726 0 4.089-.843 4.936c-.844.847-2.202.847-4.917.847h-2.88c-2.715 0-4.073 0-4.916-.847c-.844-.847-.844-2.21-.844-4.936z" />
+                  </svg>
+                </button>
+                <button :class="toggle === 'Code'? 'rounded-r-full':'rounded-full'" x-html="toggle === 'Display' 
+                          ? `<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='currentColor' d='m12.89 3l1.96.4L11.11 21l-1.96-.4zm6.7 9L16 8.41V5.58L22.42 12L16 18.41v-2.83zM1.58 12L8 5.58v2.83L4.41 12L8 15.58v2.83z'/></svg>` 
+                          : 'Component'" @click="toggleView()"></button>
+              </div>
+
+              <!-- Preview -->
+              <template x-if="toggle === 'Display'">
+                <div x-html="rawCode"></div>
+              </template>
+
+              <!-- Code -->
+              <template x-if="toggle === 'Code'">
+                <pre>
+                  <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                </pre>
+              </template>
+            </div>
+            <template id="basic-button">
+              <button class="btn">This is a Button</button>
+            </template>
+          </div>
+          <p>
+          <p class="text-base text-gray-600">
+            A default button with a background color applied. Easily themeable using Tailwind utility classes.
+          </p>
+
+          </p>
+          <div class="card mt-10" x-data="codePreviewComponent('basic-button-colored')">
+            <div class="w-full relative">
+              <!-- Toggle Buttons -->
+              <div class="btn-group absolute right-0">
+                <button @click="handleCopy" x-show="toggle === 'Code'">
+                  <!-- Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                      d="M15.24 2h-3.894c-1.764 0-3.162 0-4.255.148c-1.126.152-2.037.472-2.755 1.193c-.719.721-1.038 1.636-1.189 2.766C3 7.205 3 8.608 3 10.379v5.838c0 1.508.92 2.8 2.227 3.342c-.067-.91-.067-2.185-.067-3.247v-5.01c0-1.281 0-2.386.118-3.27c.127-.948.413-1.856 1.147-2.593s1.639-1.024 2.583-1.152c.88-.118 1.98-.118 3.257-.118h3.07c1.276 0 2.374 0 3.255.118A3.6 3.6 0 0 0 15.24 2" />
+                    <path fill="currentColor"
+                      d="M6.6 11.397c0-2.726 0-4.089.844-4.936c.843-.847 2.2-.847 4.916-.847h2.88c2.715 0 4.073 0 4.917.847S21 8.671 21 11.397v4.82c0 2.726 0 4.089-.843 4.936c-.844.847-2.202.847-4.917.847h-2.88c-2.715 0-4.073 0-4.916-.847c-.844-.847-.844-2.21-.844-4.936z" />
+                  </svg>
+                </button>
+                <button :class="toggle === 'Code'? 'rounded-r-full':'rounded-full'" x-html="toggle === 'Display' 
+                                    ? `<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='currentColor' d='m12.89 3l1.96.4L11.11 21l-1.96-.4zm6.7 9L16 8.41V5.58L22.42 12L16 18.41v-2.83zM1.58 12L8 5.58v2.83L4.41 12L8 15.58v2.83z'/></svg>` 
+                                    : 'Component'" @click="toggleView()"></button>
+              </div>
+
+              <!-- Preview -->
+              <template x-if="toggle === 'Display'">
+                <div x-html="rawCode"></div>
+              </template>
+
+              <!-- Code -->
+              <template x-if="toggle === 'Code'">
+                <pre>
+                  <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                </pre>
+              </template>
+            </div>
+            <template id="basic-button-colored"> <button class="btn bg-blue-600">This is a Button Too</button>
+            </template>
+          </div>
+        </div>
+        <div class="flex flex-col gap-5">
+          <div class="border-b pb-5 flex flex-col gap-3">
+            <h2 class="text-2xl font-bold">Pill Button</h2>
+            <p class="text-base text-gray-600">
+              A rounded button (pill-shaped) for a softer, more modern UI style. Common in mobile interfaces and tags.
+            </p>
+
+          </div>
+          <div class="card mt-10" x-data="codePreviewComponent('button-pill')">
+            <div class="w-full relative">
+              <!-- Toggle Buttons -->
+              <div class="btn-group absolute right-0">
+                <button @click="handleCopy" x-show="toggle === 'Code'">
+                  <!-- Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                      d="M15.24 2h-3.894c-1.764 0-3.162 0-4.255.148c-1.126.152-2.037.472-2.755 1.193c-.719.721-1.038 1.636-1.189 2.766C3 7.205 3 8.608 3 10.379v5.838c0 1.508.92 2.8 2.227 3.342c-.067-.91-.067-2.185-.067-3.247v-5.01c0-1.281 0-2.386.118-3.27c.127-.948.413-1.856 1.147-2.593s1.639-1.024 2.583-1.152c.88-.118 1.98-.118 3.257-.118h3.07c1.276 0 2.374 0 3.255.118A3.6 3.6 0 0 0 15.24 2" />
+                    <path fill="currentColor"
+                      d="M6.6 11.397c0-2.726 0-4.089.844-4.936c.843-.847 2.2-.847 4.916-.847h2.88c2.715 0 4.073 0 4.917.847S21 8.671 21 11.397v4.82c0 2.726 0 4.089-.843 4.936c-.844.847-2.202.847-4.917.847h-2.88c-2.715 0-4.073 0-4.916-.847c-.844-.847-.844-2.21-.844-4.936z" />
+                  </svg>
+                </button>
+                <button :class="toggle === 'Code'? 'rounded-r-full':'rounded-full'" x-html="toggle === 'Display' 
+                                      ? `<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='currentColor' d='m12.89 3l1.96.4L11.11 21l-1.96-.4zm6.7 9L16 8.41V5.58L22.42 12L16 18.41v-2.83zM1.58 12L8 5.58v2.83L4.41 12L8 15.58v2.83z'/></svg>` 
+                                      : 'Component'" @click="toggleView()"></button>
+              </div>
+
+              <!-- Preview -->
+              <template x-if="toggle === 'Display'">
+                <div x-html="rawCode"></div>
+              </template>
+
+              <!-- Code -->
+              <template x-if="toggle === 'Code'">
+                <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+              </template>
+            </div>
+            <template id="button-pill">
+              <button class="btn-pill">This is a Pill Button</button>
+            </template>
+          </div>
+        </div>
+        <div class="flex flex-col gap-5">
+          <div class="border-b pb-5 flex flex-col gap-3">
+            <h2 class="text-2xl font-bold">Outline Button</h2>
+            <p class="text-base text-gray-600">
+              A button with no background and a border. Useful for secondary actions or minimalist designs.
+            </p>
+          </div>
+          <div class="flex flex-col">
+            <div class="card" x-data="codePreviewComponent('button-outline')">
+              <div class="w-full relative">
+                <!-- Toggle Buttons -->
+                <div class="btn-group absolute right-0">
+                  <button @click="handleCopy" x-show="toggle === 'Code'">
+                    <!-- Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="M15.24 2h-3.894c-1.764 0-3.162 0-4.255.148c-1.126.152-2.037.472-2.755 1.193c-.719.721-1.038 1.636-1.189 2.766C3 7.205 3 8.608 3 10.379v5.838c0 1.508.92 2.8 2.227 3.342c-.067-.91-.067-2.185-.067-3.247v-5.01c0-1.281 0-2.386.118-3.27c.127-.948.413-1.856 1.147-2.593s1.639-1.024 2.583-1.152c.88-.118 1.98-.118 3.257-.118h3.07c1.276 0 2.374 0 3.255.118A3.6 3.6 0 0 0 15.24 2" />
+                      <path fill="currentColor"
+                        d="M6.6 11.397c0-2.726 0-4.089.844-4.936c.843-.847 2.2-.847 4.916-.847h2.88c2.715 0 4.073 0 4.917.847S21 8.671 21 11.397v4.82c0 2.726 0 4.089-.843 4.936c-.844.847-2.202.847-4.917.847h-2.88c-2.715 0-4.073 0-4.916-.847c-.844-.847-.844-2.21-.844-4.936z" />
+                    </svg>
+                  </button>
+                  <button :class="toggle === 'Code'? 'rounded-r-full':'rounded-full'" x-html="toggle === 'Display' 
+                                                  ? `<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='currentColor' d='m12.89 3l1.96.4L11.11 21l-1.96-.4zm6.7 9L16 8.41V5.58L22.42 12L16 18.41v-2.83zM1.58 12L8 5.58v2.83L4.41 12L8 15.58v2.83z'/></svg>` 
+                                                  : 'Component'" @click="toggleView()"></button>
+                </div>
+
+                <!-- Preview -->
+                <template x-if="toggle === 'Display'">
+                  <div x-html="rawCode"></div>
+                </template>
+
+                <!-- Code -->
+                <template x-if="toggle === 'Code'">
+                  <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                </template>
+              </div>
+              <template id="button-outline">
+                <button class="btn-outline">This is Outline Button</button>
+              </template>
+            </div>
+            <div class="card" x-data="codePreviewComponent('button-outline-2')">
+              <div class="w-full relative">
+                <!-- Toggle Buttons -->
+                <div class="btn-group absolute right-0">
+                  <button @click="handleCopy" x-show="toggle === 'Code'">
+                    <!-- Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="M15.24 2h-3.894c-1.764 0-3.162 0-4.255.148c-1.126.152-2.037.472-2.755 1.193c-.719.721-1.038 1.636-1.189 2.766C3 7.205 3 8.608 3 10.379v5.838c0 1.508.92 2.8 2.227 3.342c-.067-.91-.067-2.185-.067-3.247v-5.01c0-1.281 0-2.386.118-3.27c.127-.948.413-1.856 1.147-2.593s1.639-1.024 2.583-1.152c.88-.118 1.98-.118 3.257-.118h3.07c1.276 0 2.374 0 3.255.118A3.6 3.6 0 0 0 15.24 2" />
+                      <path fill="currentColor"
+                        d="M6.6 11.397c0-2.726 0-4.089.844-4.936c.843-.847 2.2-.847 4.916-.847h2.88c2.715 0 4.073 0 4.917.847S21 8.671 21 11.397v4.82c0 2.726 0 4.089-.843 4.936c-.844.847-2.202.847-4.917.847h-2.88c-2.715 0-4.073 0-4.916-.847c-.844-.847-.844-2.21-.844-4.936z" />
+                    </svg>
+                  </button>
+                  <button :class="toggle === 'Code'? 'rounded-r-full':'rounded-full'" x-html="toggle === 'Display' 
+                                                  ? `<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='currentColor' d='m12.89 3l1.96.4L11.11 21l-1.96-.4zm6.7 9L16 8.41V5.58L22.42 12L16 18.41v-2.83zM1.58 12L8 5.58v2.83L4.41 12L8 15.58v2.83z'/></svg>` 
+                                                  : 'Component'" @click="toggleView()"></button>
+                </div>
+
+                <!-- Preview -->
+                <template x-if="toggle === 'Display'">
+                  <div x-html="rawCode"></div>
+                </template>
+
+                <!-- Code -->
+                <template x-if="toggle === 'Code'">
+                  <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                </template>
+              </div>
+              <template id="button-outline-2">
+                <button class="btn-outline border-red-500 hover:bg-red-500">This is Outline Button Too!</button>
+              </template>
+            </div>
+            <div class="card" x-data="codePreviewComponent('button-dashed')">
+              <div class="w-full relative">
+                <!-- Toggle Buttons -->
+                <div class="btn-group absolute right-0">
+                  <button @click="handleCopy" x-show="toggle === 'Code'">
+                    <!-- Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="M15.24 2h-3.894c-1.764 0-3.162 0-4.255.148c-1.126.152-2.037.472-2.755 1.193c-.719.721-1.038 1.636-1.189 2.766C3 7.205 3 8.608 3 10.379v5.838c0 1.508.92 2.8 2.227 3.342c-.067-.91-.067-2.185-.067-3.247v-5.01c0-1.281 0-2.386.118-3.27c.127-.948.413-1.856 1.147-2.593s1.639-1.024 2.583-1.152c.88-.118 1.98-.118 3.257-.118h3.07c1.276 0 2.374 0 3.255.118A3.6 3.6 0 0 0 15.24 2" />
+                      <path fill="currentColor"
+                        d="M6.6 11.397c0-2.726 0-4.089.844-4.936c.843-.847 2.2-.847 4.916-.847h2.88c2.715 0 4.073 0 4.917.847S21 8.671 21 11.397v4.82c0 2.726 0 4.089-.843 4.936c-.844.847-2.202.847-4.917.847h-2.88c-2.715 0-4.073 0-4.916-.847c-.844-.847-.844-2.21-.844-4.936z" />
+                    </svg>
+                  </button>
+                  <button :class="toggle === 'Code'? 'rounded-r-full':'rounded-full'" x-html="toggle === 'Display' 
+                                    ? `<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='currentColor' d='m12.89 3l1.96.4L11.11 21l-1.96-.4zm6.7 9L16 8.41V5.58L22.42 12L16 18.41v-2.83zM1.58 12L8 5.58v2.83L4.41 12L8 15.58v2.83z'/></svg>` 
+                                    : 'Component'" @click="toggleView()"></button>
+                </div>
+
+                <!-- Preview -->
+                <template x-if="toggle === 'Display'">
+                  <div x-html="rawCode"></div>
+                </template>
+
+                <!-- Code -->
+                <template x-if="toggle === 'Code'">
+                  <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                </template>
+              </div>
+              <template id="button-dashed">
+                <button class="btn-outline btn-dashed">This is Dashed Outline Button!</button>
+              </template>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-5">
+          <div class="border-b pb-5 flex flex-col gap-3">
+            <h2 class="text-2xl font-bold">Button Group</h2>
+            <p class="text-base text-gray-600">
+              A set of buttons grouped together, useful for segmented controls or multiple related actions.
+            </p>
+          </div>
+          <div class="card" x-data="codePreviewComponent('button-group')">
+            <div class="w-full relative">
+              <!-- Toggle Buttons -->
+              <div class="btn-group absolute right-0">
+                <button @click="handleCopy" x-show="toggle === 'Code'">
+                  <!-- Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                      d="M15.24 2h-3.894c-1.764 0-3.162 0-4.255.148c-1.126.152-2.037.472-2.755 1.193c-.719.721-1.038 1.636-1.189 2.766C3 7.205 3 8.608 3 10.379v5.838c0 1.508.92 2.8 2.227 3.342c-.067-.91-.067-2.185-.067-3.247v-5.01c0-1.281 0-2.386.118-3.27c.127-.948.413-1.856 1.147-2.593s1.639-1.024 2.583-1.152c.88-.118 1.98-.118 3.257-.118h3.07c1.276 0 2.374 0 3.255.118A3.6 3.6 0 0 0 15.24 2" />
+                    <path fill="currentColor"
+                      d="M6.6 11.397c0-2.726 0-4.089.844-4.936c.843-.847 2.2-.847 4.916-.847h2.88c2.715 0 4.073 0 4.917.847S21 8.671 21 11.397v4.82c0 2.726 0 4.089-.843 4.936c-.844.847-2.202.847-4.917.847h-2.88c-2.715 0-4.073 0-4.916-.847c-.844-.847-.844-2.21-.844-4.936z" />
+                  </svg>
+                </button>
+                <button :class="toggle === 'Code'? 'rounded-r-full':'rounded-full'" x-html="toggle === 'Display' 
+                                                ? `<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='currentColor' d='m12.89 3l1.96.4L11.11 21l-1.96-.4zm6.7 9L16 8.41V5.58L22.42 12L16 18.41v-2.83zM1.58 12L8 5.58v2.83L4.41 12L8 15.58v2.83z'/></svg>` 
+                                                : 'Component'" @click="toggleView()"></button>
+              </div>
+
+              <!-- Preview -->
+              <template x-if="toggle === 'Display'">
+                <div x-html="rawCode"></div>
+              </template>
+
+              <!-- Code -->
+              <template x-if="toggle === 'Code'">
+                <pre>
+                  <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                </pre>
+              </template>
+            </div>
+            <template id="button-group">
+              <div class="btn-group">
+                <button>Left</button>
+                <button>Middle</button>
+                <button>Right</button>
+              </div>
+            </template>
+          </div>
+        </div>
+        <div class="flex flex-col gap-5 ">
+          <div class="border-b pb-5 w-full flex flex-col gap-3">
+            <h2 class="text-2xl font-bold">Button with Icon</h2>
+            <p class="text-base text-gray-600">
+              A button with an icon and interactive state toggle (like/unlike). Great for social UI elements.
+            </p>
+          </div>
+          <div class="card" x-data="codePreviewComponent('btn-icon')">
+            <div class="w-full relative">
+              <!-- Toggle Buttons -->
+              <div class="btn-group absolute right-0">
+                <button @click="handleCopy" x-show="toggle === 'Code'">
+                  <!-- Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                      d="M15.24 2h-3.894c-1.764 0-3.162 0-4.255.148c-1.126.152-2.037.472-2.755 1.193c-.719.721-1.038 1.636-1.189 2.766C3 7.205 3 8.608 3 10.379v5.838c0 1.508.92 2.8 2.227 3.342c-.067-.91-.067-2.185-.067-3.247v-5.01c0-1.281 0-2.386.118-3.27c.127-.948.413-1.856 1.147-2.593s1.639-1.024 2.583-1.152c.88-.118 1.98-.118 3.257-.118h3.07c1.276 0 2.374 0 3.255.118A3.6 3.6 0 0 0 15.24 2" />
+                    <path fill="currentColor"
+                      d="M6.6 11.397c0-2.726 0-4.089.844-4.936c.843-.847 2.2-.847 4.916-.847h2.88c2.715 0 4.073 0 4.917.847S21 8.671 21 11.397v4.82c0 2.726 0 4.089-.843 4.936c-.844.847-2.202.847-4.917.847h-2.88c-2.715 0-4.073 0-4.916-.847c-.844-.847-.844-2.21-.844-4.936z" />
+                  </svg>
+                </button>
+                <button :class="toggle === 'Code'? 'rounded-r-full':'rounded-full'" x-html="toggle === 'Display' 
+                                                ? `<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='currentColor' d='m12.89 3l1.96.4L11.11 21l-1.96-.4zm6.7 9L16 8.41V5.58L22.42 12L16 18.41v-2.83zM1.58 12L8 5.58v2.83L4.41 12L8 15.58v2.83z'/></svg>` 
+                                                : 'Component'" @click="toggleView()"></button>
+              </div>
+
+              <!-- Preview -->
+              <template x-if="toggle === 'Display'">
+                <div x-html="rawCode"></div>
+              </template>
+
+              <!-- Code -->
+              <template x-if="toggle === 'Code'">
+                <pre>
+                  <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                </pre>
+              </template>
+            </div>
+            <template id="btn-icon">
+              <button class="btn" x-data="{ liked: false }" @click="liked = !liked">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"
+                  class="size-[1.2em]">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                </svg>
+                Like
+              </button>
+            </template>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-5 w-full">
+      <div class="flex justify-between border-b pb-3 items-center"
+        @click.stop="tabOpened = tabOpened === 'dropdown' ? '' : 'dropdown'">
+        <h2 class="text-3xl font-bold">Dropdown</h2>
+        <span class="flex items-center duration-300" :class="tabOpened === 'dropdown' ? 'rotate-180' : ''">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#000"
+              d="M8.037 11.166L14.5 22.36c.825 1.43 2.175 1.43 3 0l6.463-11.195c.826-1.43.15-2.598-1.5-2.598H9.537c-1.65 0-2.326 1.17-1.5 2.6z" />
+          </svg>
+        </span>
+      </div>
+      <div class="flex flex-col gap-7 items-start w-full" x-show="tabOpened === 'dropdown'" x-transition x-cloak>
+        <div class="flex flex-col gap-5 w-full">
+          <div class="border-b pb-5 w-full flex flex-col gap-3">
+            <h2 class="text-2xl font-bold">
+              Default Dropdown
+            </h2>
+            <p class="text-base text-gray-600">
+              A basic dropdown menu that appears on click. Useful for navigation, filters, or user menus.
+            </p>
+          </div>
+          <div class="card w-full items-center" x-data="codePreviewComponent('default-dropdown')">
+            <div class="w-full relative">
+              <!-- Toggle Buttons -->
+              <div class="btn-group absolute right-0">
+                <button @click="handleCopy" x-show="toggle === 'Code'">
+                  <!-- Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                      d="M15.24 2h-3.894c-1.764 0-3.162 0-4.255.148c-1.126.152-2.037.472-2.755 1.193c-.719.721-1.038 1.636-1.189 2.766C3 7.205 3 8.608 3 10.379v5.838c0 1.508.92 2.8 2.227 3.342c-.067-.91-.067-2.185-.067-3.247v-5.01c0-1.281 0-2.386.118-3.27c.127-.948.413-1.856 1.147-2.593s1.639-1.024 2.583-1.152c.88-.118 1.98-.118 3.257-.118h3.07c1.276 0 2.374 0 3.255.118A3.6 3.6 0 0 0 15.24 2" />
+                    <path fill="currentColor"
+                      d="M6.6 11.397c0-2.726 0-4.089.844-4.936c.843-.847 2.2-.847 4.916-.847h2.88c2.715 0 4.073 0 4.917.847S21 8.671 21 11.397v4.82c0 2.726 0 4.089-.843 4.936c-.844.847-2.202.847-4.917.847h-2.88c-2.715 0-4.073 0-4.916-.847c-.844-.847-.844-2.21-.844-4.936z" />
+                  </svg>
+                </button>
+                <button :class="toggle === 'Code'? 'rounded-r-full':'rounded-full'" x-html="toggle === 'Display' 
+                                                ? `<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='currentColor' d='m12.89 3l1.96.4L11.11 21l-1.96-.4zm6.7 9L16 8.41V5.58L22.42 12L16 18.41v-2.83zM1.58 12L8 5.58v2.83L4.41 12L8 15.58v2.83z'/></svg>` 
+                                                : 'Component'" @click="toggleView()"></button>
+              </div>
+
+              <!-- Preview -->
+              <template x-if="toggle === 'Display'">
+                <div x-html="rawCode" class="w-1/2"></div>
+              </template>
+
+              <!-- Code -->
+              <template x-if="toggle === 'Code'">
+                <pre>
+                  <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+                </pre>
+              </template>
+            </div>
+            <template id="default-dropdown">
+              <div x-data="{ open: false }" class="dropdown">
+                <button type="button" class="" @click="open = !open">
+                  Click
+                </button>
+                <ul x-show="open" x-transition x-cloak class="dropdown-list-items">
+                  <li>
+                    item 1
+                  </li>
+                  <li>
+                    item 2
+                  </li>
+                  <li>
+                    item 3
+                  </li>
+                  <li>
+                    item 4
+                  </li>
+                  <li>
+                    <a href="https://youtu.be/dQw4w9WgXcQ?si=iiqF-iDTWaLPpEQw" target="_blank">Link Item</a>
+                  </li>
+                </ul>
+              </div>
+            </template>
+          </div>
+        </div>
+        <div class="flex flex-col gap-5 w-full items-start">
+          <div class="border-b pb-5 w-full">
+            <h2 class="text-2xl font-bold">
+              Left/Right Aligned Dropdown
+            </h2>
+          </div>
+          <div class="flex gap-3">
+            <div x-data="{ open: false }" class="dropdown">
+              <div class="relative">
+                <button type="button" class="relative" @click="open = !open" @click.outside="open = false">
+                  Left Aligned
+                </button>
+                <ul x-show="open" x-transition x-cloak class="dropdown-list-items absolute -left-0 top-16">
+                  <li>
+                    item 1
+                  </li>
+                  <li>
+                    item 2
+                  </li>
+                  <li>
+                    item 3
+                  </li>
+                  <li>
+                    item 4
+                  </li>
+                  <li>
+                    <a href="https://youtu.be/dQw4w9WgXcQ?si=iiqF-iDTWaLPpEQw" target="_blank">Link Item</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div x-data="{ open: false }" class="dropdown">
+              <div class="relative">
+                <button type="button" class="relative" @click="open = !open" @click.outside="open = false">
+                  Right Aligned
+                </button>
+                <ul x-show="open" x-transition x-cloak class="dropdown-list-items absolute -right-0 top-16">
+                  <li>
+                    item 1
+                  </li>
+                  <li>
+                    item 2
+                  </li>
+                  <li>
+                    item 3
+                  </li>
+                  <li>
+                    item 4
+                  </li>
+                  <li>
+                    <a href="https://youtu.be/dQw4w9WgXcQ?si=iiqF-iDTWaLPpEQw" target="_blank">Link Item</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div x-data="{ open: false }" class="dropdown">
+              <div class="relative">
+                <button type="button" class="relative" @click="open = !open" @click.outside="open = false">
+                  Left Aligned
+                </button>
+                <ul x-show="open" x-transition x-cloak class="dropdown-list-items absolute -left-0 bottom-16">
+                  <li>
+                    item 1
+                  </li>
+                  <li>
+                    item 2
+                  </li>
+                  <li>
+                    item 3
+                  </li>
+                  <li>
+                    item 4
+                  </li>
+                  <li>
+                    <a href="https://youtu.be/dQw4w9WgXcQ?si=iiqF-iDTWaLPpEQw" target="_blank">Link Item</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div x-data="{ open: false }" class="dropdown">
+              <div class="relative">
+                <button type="button" class="relative" @click="open = !open" @click.outside="open = false">
+                  Right Aligned
+                </button>
+                <ul x-show="open" x-transition x-cloak class="dropdown-list-items absolute -right-0 bottom-16">
+                  <li>
+                    item 1
+                  </li>
+                  <li>
+                    item 2
+                  </li>
+                  <li>
+                    item 3
+                  </li>
+                  <li>
+                    item 4
+                  </li>
+                  <li>
+                    <a href="https://youtu.be/dQw4w9WgXcQ?si=iiqF-iDTWaLPpEQw" target="_blank">Link Item</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-5 w-full">
+      <div class="flex justify-between border-b pb-3 items-center"
+        @click="tabOpened = tabOpened === 'modals' ? '' : 'modals'">
+        <h2 class="font-bold text-3xl">Modals</h2>
+        <span class="flex items-center duration-300" :class="tabOpened === 'modals' ? 'rotate-180' : ''">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#000"
+              d="M8.037 11.166L14.5 22.36c.825 1.43 2.175 1.43 3 0l6.463-11.195c.826-1.43.15-2.598-1.5-2.598H9.537c-1.65 0-2.326 1.17-1.5 2.6z" />
+          </svg>
+        </span>
+      </div>
+      <div class="flex flex-col gap-7 items-start w-full" x-show="tabOpened === 'modals'" x-transition x-cloack>
+        <p class="text-gray-600 text-base">
+          In HTML, a modal (or modal dialog) is a user interface element that appears on top of the main content of a
+          webpage,
+          temporarily disabling interaction with the underlying page. Modals are commonly used to display important
+          information,
+          collect user input, or confirm actions.
+        </p>
+        A simple modal can be create with the following code:
+        <div class="card w-full" x-data="codePreviewComponent('basic-modal')">
+          <div class="w-full relative">
+            <!-- Toggle Buttons -->
+            <div class="btn-group absolute right-0">
+              <button @click="handleCopy" x-show="toggle === 'Code'">
+                <!-- Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path fill="currentColor"
+                    d="M15.24 2h-3.894c-1.764 0-3.162 0-4.255.148c-1.126.152-2.037.472-2.755 1.193c-.719.721-1.038 1.636-1.189 2.766C3 7.205 3 8.608 3 10.379v5.838c0 1.508.92 2.8 2.227 3.342c-.067-.91-.067-2.185-.067-3.247v-5.01c0-1.281 0-2.386.118-3.27c.127-.948.413-1.856 1.147-2.593s1.639-1.024 2.583-1.152c.88-.118 1.98-.118 3.257-.118h3.07c1.276 0 2.374 0 3.255.118A3.6 3.6 0 0 0 15.24 2" />
+                  <path fill="currentColor"
+                    d="M6.6 11.397c0-2.726 0-4.089.844-4.936c.843-.847 2.2-.847 4.916-.847h2.88c2.715 0 4.073 0 4.917.847S21 8.671 21 11.397v4.82c0 2.726 0 4.089-.843 4.936c-.844.847-2.202.847-4.917.847h-2.88c-2.715 0-4.073 0-4.916-.847c-.844-.847-.844-2.21-.844-4.936z" />
+                </svg>
+              </button>
+              <button :class="toggle === 'Code'? 'rounded-r-full':'rounded-full'" x-html="toggle === 'Display' 
+                                              ? `<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='currentColor' d='m12.89 3l1.96.4L11.11 21l-1.96-.4zm6.7 9L16 8.41V5.58L22.42 12L16 18.41v-2.83zM1.58 12L8 5.58v2.83L4.41 12L8 15.58v2.83z'/></svg>` 
+                                              : 'Component'" @click="toggleView()"></button>
+            </div>
+
+            <!-- Preview -->
+            <template x-if="toggle === 'Display'">
+              <div x-html="rawCode"></div>
+            </template>
+
+            <!-- Code -->
+            <template x-if="toggle === 'Code'">
+              <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+            </template>
+          </div>
+
+          <template id="basic-modal">
+            <button class="btn" @click="$store.modal.openModal()">Open Modal</button>
+          </template>
+        </div>
+        <p class="text-gray-600 text-base">
+          Or you can craft more complex modals with the following code:
+        <div class="card w-full" x-data="codePreviewComponent('custom-trigger-modal')">
+          <div class="w-full relative">
+            <!-- Toggle Buttons -->
+            <div class="btn-group absolute right-0">
+              <button @click="handleCopy" x-show="toggle === 'Code'">
+                <!-- Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path fill="currentColor"
+                    d="M15.24 2h-3.894c-1.764 0-3.162 0-4.255.148c-1.126.152-2.037.472-2.755 1.193c-.719.721-1.038 1.636-1.189 2.766C3 7.205 3 8.608 3 10.379v5.838c0 1.508.92 2.8 2.227 3.342c-.067-.91-.067-2.185-.067-3.247v-5.01c0-1.281 0-2.386.118-3.27c.127-.948.413-1.856 1.147-2.593s1.639-1.024 2.583-1.152c.88-.118 1.98-.118 3.257-.118h3.07c1.276 0 2.374 0 3.255.118A3.6 3.6 0 0 0 15.24 2" />
+                  <path fill="currentColor"
+                    d="M6.6 11.397c0-2.726 0-4.089.844-4.936c.843-.847 2.2-.847 4.916-.847h2.88c2.715 0 4.073 0 4.917.847S21 8.671 21 11.397v4.82c0 2.726 0 4.089-.843 4.936c-.844.847-2.202.847-4.917.847h-2.88c-2.715 0-4.073 0-4.916-.847c-.844-.847-.844-2.21-.844-4.936z" />
+                </svg>
+              </button>
+              <button :class="toggle === 'Code'? 'rounded-r-full':'rounded-full'" x-html="toggle === 'Display' 
+                                                        ? `<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='currentColor' d='m12.89 3l1.96.4L11.11 21l-1.96-.4zm6.7 9L16 8.41V5.58L22.42 12L16 18.41v-2.83zM1.58 12L8 5.58v2.83L4.41 12L8 15.58v2.83z'/></svg>` 
+                                                        : 'Component'" @click="toggleView()"></button>
+            </div>
+
+            <!-- Preview -->
+            <template x-if="toggle === 'Display'">
+              <div x-html="rawCode"></div>
+            </template>
+
+            <!-- Code -->
+            <template x-if="toggle === 'Code'">
+              <pre>
+                <div class="bg-[#23262E] text-white px-10 py-10 rounded-2xl" x-html="highlightedCode"></div>
+              </pre>
+            </template>
+          </div>
+          <template id="custom-trigger-modal">
+            <button class="btn" @click="$store.modal.openModal({
+            title:'Never Gonna Give You Up',
+            bodyID:'custom-modal-body',
+            footerID:'custom-modal-footer'})"> Open Modal
+            </button>
+          </template>
+
+        </div>
+        </p>
+
+        <template id="custom-modal-body">
+          <div class="px-16 w-full h-full py-7">
+            <iframe height="315" class="aspect-video mx-auto"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=8o59CjPNwxyGH5JC" title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen autoplay></iframe>
+          </div>
+        </template>
+        <template id="custom-modal-footer">
+          <div></div>
+        </template>
+
+      </div>
+    </div>
+</body>
+
+</html>
