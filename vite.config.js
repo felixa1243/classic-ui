@@ -6,6 +6,6 @@ const repoName = 'classic-ui'
 export default defineConfig({
     base: `/${repoName}/`,
     build: {
-        outDir: 'dist/docs',
+        outDir: 'dist/',
     },
 })
