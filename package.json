@@ -26,8 +26,10 @@
   },
   "dependencies": {
     "@alpinejs/focus": "^3.14.9",
+    "@alpinejs/persist": "^3.14.9",
     "@tailwindcss/vite": "^4.0.14",
     "alpinejs": "^3.14.9",
+    "shiki": "^3.8.1",
     "tailwindcss": "^4.0.14"
   }
 }
