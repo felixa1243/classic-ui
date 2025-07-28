@@ -2,7 +2,6 @@ import Alpine from "alpinejs";
 import { focus } from "@alpinejs/focus";
 import { persist } from "@alpinejs/persist";
 import './style.css';
-import 'shiki/themes/andromeeda.mjs';
 window.Alpine = Alpine;
 Alpine.plugin(focus);
 Alpine.plugin(persist);
