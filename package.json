@@ -4,6 +4,10 @@
   "type": "module",
   "description": "A collection of Unstyled UI components for Tailwind CSS",
   "main": "dist/index.css",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felixa1243/classic-ui.git"
+  },
   "style": "dist/index.css",
   "files": [
     "dist"
