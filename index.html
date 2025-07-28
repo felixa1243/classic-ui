@@ -24,8 +24,12 @@
       </div>
       <div class="flex flex-col gap-7" x-show="tabOpened === 'buttons'" x-transition x-cloak>
         <div>
-          <div class="border-b pb-5">
+          <div class="border-b pb-5 flex flex-col gap-3">
             <h2 class="text-2xl font-bold">Default Button</h2>
+            <p class="text-base text-gray-600">
+              A basic button component with default styling. It provides a neutral starting point for custom button
+              designs.
+            </p>
           </div>
           <div class="card mt-10" x-data="codePreviewComponent('basic-button')">
             <div class="w-full relative">
@@ -59,7 +63,12 @@
               <button class="btn">This is a Button</button>
             </template>
           </div>
-          You Can Also Change the Background Color
+          <p>
+          <p class="text-base text-gray-600">
+            A default button with a background color applied. Easily themeable using Tailwind utility classes.
+          </p>
+
+          </p>
           <div class="card mt-10" x-data="codePreviewComponent('basic-button-colored')">
             <div class="w-full relative">
               <!-- Toggle Buttons -->
@@ -93,8 +102,12 @@
           </div>
         </div>
         <div class="flex flex-col gap-5">
-          <div class="border-b pb-5">
+          <div class="border-b pb-5 flex flex-col gap-3">
             <h2 class="text-2xl font-bold">Pill Button</h2>
+            <p class="text-base text-gray-600">
+              A rounded button (pill-shaped) for a softer, more modern UI style. Common in mobile interfaces and tags.
+            </p>
+
           </div>
           <div class="card mt-10" x-data="codePreviewComponent('button-pill')">
             <div class="w-full relative">
@@ -130,8 +143,11 @@
           </div>
         </div>
         <div class="flex flex-col gap-5">
-          <div class="border-b pb-5">
+          <div class="border-b pb-5 flex flex-col gap-3">
             <h2 class="text-2xl font-bold">Outline Button</h2>
+            <p class="text-base text-gray-600">
+              A button with no background and a border. Useful for secondary actions or minimalist designs.
+            </p>
           </div>
           <div class="flex flex-col">
             <div class="card" x-data="codePreviewComponent('button-outline')">
@@ -233,8 +249,11 @@
           </div>
         </div>
         <div class="flex flex-col gap-5">
-          <div class="border-b pb-5">
+          <div class="border-b pb-5 flex flex-col gap-3">
             <h2 class="text-2xl font-bold">Button Group</h2>
+            <p class="text-base text-gray-600">
+              A set of buttons grouped together, useful for segmented controls or multiple related actions.
+            </p>
           </div>
           <div class="card" x-data="codePreviewComponent('button-group')">
             <div class="w-full relative">
@@ -272,8 +291,11 @@
           </div>
         </div>
         <div class="flex flex-col gap-5 ">
-          <div class="border-b pb-5 w-full">
+          <div class="border-b pb-5 w-full flex flex-col gap-3">
             <h2 class="text-2xl font-bold">Button with Icon</h2>
+            <p class="text-base text-gray-600">
+              A button with an icon and interactive state toggle (like/unlike). Great for social UI elements.
+            </p>
           </div>
           <div class="card" x-data="codePreviewComponent('btn-icon')">
             <div class="w-full relative">
@@ -305,8 +327,8 @@
             </div>
             <template id="btn-icon">
               <button class="btn" x-data="{ liked: false }" @click="liked = !liked">
-                <svg xmlns="http://www.w3.org/2000/svg" :fill="liked ? 'currentColor' : 'none'" viewBox="0 0 24 24"
-                  stroke-width="2.5" stroke="currentColor" class="size-[1.2em]">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"
+                  class="size-[1.2em]">
                   <path stroke-linecap="round" stroke-linejoin="round"
                     d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                 </svg>
@@ -330,12 +352,15 @@
       </div>
       <div class="flex flex-col gap-7 items-start w-full" x-show="tabOpened === 'dropdown'" x-transition x-cloak>
         <div class="flex flex-col gap-5 w-full">
-          <div class="border-b pb-5 w-full">
+          <div class="border-b pb-5 w-full flex flex-col gap-3">
             <h2 class="text-2xl font-bold">
               Default Dropdown
             </h2>
+            <p class="text-base text-gray-600">
+              A basic dropdown menu that appears on click. Useful for navigation, filters, or user menus.
+            </p>
           </div>
-          <div class="card w-full" x-data="codePreviewComponent('default-dropdown')">
+          <div class="card w-full items-center" x-data="codePreviewComponent('default-dropdown')">
             <div class="w-full relative">
               <!-- Toggle Buttons -->
               <div class="btn-group absolute right-0">
@@ -355,7 +380,7 @@
 
               <!-- Preview -->
               <template x-if="toggle === 'Display'">
-                <div x-html="rawCode"></div>
+                <div x-html="rawCode" class="w-1/2"></div>
               </template>
 
               <!-- Code -->
@@ -507,21 +532,30 @@
           </svg>
         </span>
       </div>
-      <div class="flex flex-col gap-7 items-start w-1/2" x-show="tabOpened === 'modals'" x-transition x-cloack>
-        <div x-data="confirmModal">
-          <button class="btn" @click="onClick">Confirmation Modal</button>
+      <div class="flex flex-col gap-7 items-start w-full" x-show="tabOpened === 'modals'" x-transition x-cloack>
+        <!-- Confirmation Modal -->
+        <div class="border-b pb-5 w-full flex flex-col gap-3">
+          <h2 class="text-2xl font-bold">Confirmation Modal</h2>
+          <p class="text-base text-gray-600">
+            A modal used to confirm user actions such as deleting, saving, or submitting. Includes customizable title,
+            description, and confirm/cancel buttons.
+          </p>
         </div>
+
+
+        <button class="btn" @click="$store.modal.openModal()">Confirmation Modal</button>
+
         <div x-data="renderSourceCode('confirm-modal-source')">
           <div class="card" x-html="highlightedCode">
 
           </div>
           <template id="confirm-modal-source">
-            <div x-show="$store.popUpState.modalOpen && $store.popUpState.modalType==='CONFIRM_MODAL'" x-transition
-              x-cloak class="modal" @click.outside="modalOpen=false">
+            <div x-show="$store.modal.modalOpen && $store.modal.modalType==='CONFIRM_MODAL'" x-transition x-cloak
+              class="modal" @click.outside="modalOpen=false">
               <div class="modal-header">
-                <h5 class="text-2xl font-semibold" x-text="$store.popUpState.modalData?.title"></h5>
+                <h5 class="text-2xl font-semibold" x-text="$store.modal.modalData?.title"></h5>
                 <button type="button" class="text-2xl text-red-500 hover:text-red-600"
-                  @click="$store.popUpState.modalOpen=false">
+                  @click="$store.modal.modalOpen=false">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
                       d="m8.464 15.535l7.072-7.07m-7.072 0l7.072 7.07" />
@@ -530,12 +564,11 @@
               </div>
 
               <div class="modal-body">
-                <p class="text-lg" x-html="$store.popUpState.modalData?.message"></p>
+                <p class="text-lg" x-html="$store.modal.modalData?.message"></p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn bg-gray-600"
-                  @click="$store.popUpState.modalData?.onCancel">Cancel</button>
-                <button type="submit" class="btn" @click="$store.popUpState.modalData?.onConfirm">Ok!</button>
+                <button type="button" class="btn bg-gray-600" @click="$store.modal.modalData?.onCancel">Cancel</button>
+                <button type="submit" class="btn" @click="$store.modal.modalData?.onConfirm">Ok!</button>
               </div>
             </div>
           </template>
@@ -543,26 +576,44 @@
       </div>
     </div>
   </div>
-
-  <div x-show="$store.popUpState.modalOpen && $store.popUpState.modalType === 'CONFIRM_MODAL'" x-transition x-cloak
-    class="modal" @click.outside="modalOpen = false">
+  <template id="default-modal-header">
     <div class="modal-header">
-      <h5 class="text-2xl font-semibold" x-text="$store.popUpState.modalData?.title"></h5>
-      <button type="button" class="text-2xl text-red-500 hover:text-red-600"
-        @click="$store.popUpState.modalOpen = false">
+      <h5 class="text-2xl font-semibold">An example of Confirmation Modal</h5>
+      <button type="button" class="text-2xl text-red-500 hover:text-red-600" @click="$store.modal.modalOpen = false">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
           <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
             d="m8.464 15.535l7.072-7.07m-7.072 0l7.072 7.07" />
         </svg>
       </button>
     </div>
-
+  </template>
+  <template id="default-modal-body">
     <div class="modal-body">
-      <p class="text-lg" x-html="$store.popUpState.modalData?.message"></p>
+      <p class="text-lg">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere aperiam suscipit, voluptatibus repellendus
+        molestiae consectetur? Accusamus, amet cupiditate quidem, adipisci explicabo libero iste deleniti labore
+        quibusdam tempore provident nisi fugiat quas illo illum similique sapiente aliquam eveniet perferendis fuga.
+        Animi, consequuntur! Facere dolores modi voluptas, reiciendis autem libero magni at amet veniam doloremque?
+        Suscipit nobis inventore nostrum quisquam nulla assumenda, sequi eaque eum. Minima, soluta dolorum quod eos
+        consectetur asperiores amet ea numquam vitae tempora! Similique perspiciatis ratione, atque sit iusto incidunt
+        ipsum quaerat eos ex. Repellat quidem itaque, expedita eaque consequuntur dolor, ducimus voluptatibus, cumque
+        quae qui atque perspiciatis.
+      </p>
     </div>
+  </template>
+  <template id="default-modal-footer">
     <div class="modal-footer">
-      <button type="button" class="btn bg-gray-600" @click="$store.popUpState.modalData?.onCancel">Cancel</button>
-      <button type="submit" class="btn" @click="$store.popUpState.modalData?.onConfirm">Ok!</button>
+      <button type="button" class="btn bg-gray-600"
+        @click="()=>console.log('canceled');$store.modal.closeModal()">Cancel</button>
+      <button type="button" class="btn" @click="()=>console.log('confirmed');$store.modal.closeModal()">Ok!</button>
+    </div>
+  </template>
+  <div x-show="$store.modal.modalOpen" x-transition x-cloak class="modal" @click.outside="modalOpen = false">
+    <div x-html="$store.modal.modalHeader">
+    </div>
+    <div x-html="$store.modal.modalBody">
+    </div>
+    <div x-html="$store.modal.modalFooter">
     </div>
   </div>
 
