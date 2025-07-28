@@ -8,11 +8,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
     build: {
         outDir: 'dist/',
-        rollupOptions: {
-            input: [
-                resolve(__dirname, 'src/main.js'),
-                resolve(__dirname, 'src/highlighter.js')
-            ]
-        }
     },
 })
