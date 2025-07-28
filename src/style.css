@@ -41,6 +41,10 @@
         @apply px-5 py-2.5 text-center bg-black text-white inset-shadow-sm transition-all duration-200 ease-in-out hover:bg-black/50 active:scale-95;
     }
 
+    pre {
+        text-wrap: auto;
+    }
+
     .btn-group button:first-child {
         @apply rounded-l-full border-r;
     }
