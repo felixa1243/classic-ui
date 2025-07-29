@@ -6,7 +6,7 @@
   "main": "dist/index.css",
   "repository": {
     "type": "git",
-    "url": "https://github.com/felixa1243/classic-ui.git"
+    "url": "git+https://github.com/felixa1243/classic-ui.git"
   },
   "style": "dist/index.css",
   "files": [
