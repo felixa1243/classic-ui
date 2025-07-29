@@ -11,6 +11,69 @@
 
 <body class="w-full h-screen flex justify-center items-center flex-col py-16" x-data="vanilla_data">
   <div class="flex flex-col gap-7 w-1/2 h-full">
+    <section class="px-6 max-w-5xl mx-auto flex flex-col gap-16">
+      <!-- Hero Section -->
+      <div class="flex flex-col gap-7 items-center text-center">
+        <h1 class="text-6xl font-bold">Vanilla Unstyled UI</h1>
+        <p class="text-base max-w-2xl text-gray-600">
+          A flexible set of modular and unstyled UI components built for Tailwind CSS &amp; Alpine.js.
+          <br>
+          Designed for makers who want full control—build your design system from scratch, extend every piece, and
+          scaffold
+          your own UI toolkit with zero opinionated styles.
+        </p>
+      </div>
+
+      <!-- Features Section -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-20 text-center">
+        <div>
+          <h2 class="text-xl font-semibold">🧩 Modular by Design</h2>
+          <p class="mt-2 text-gray-600">Use only what you need. Each component is isolated and composable—mix and match
+            freely without bloat.</p>
+        </div>
+        <div>
+          <h2 class="text-xl font-semibold">🔧 DIY & Scaffold-Ready</h2>
+          <p class="mt-2 text-gray-600">Start from raw elements and scaffold your own design system. You bring the
+            design—Vanilla provides the structure.</p>
+        </div>
+        <div>
+          <h2 class="text-xl font-semibold">🧱 Fully Extendable</h2>
+          <p class="mt-2 text-gray-600">Components are intentionally barebones. Extend or wrap them to match your brand,
+            UX
+            patterns, or framework.</p>
+        </div>
+      </div>
+
+      <!-- Philosophy Section -->
+      <div class=" text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold mb-4">A Philosophy of Freedom</h2>
+        <p class="text-gray-600 text-lg">
+          Many UI kits come pre-styled with assumptions. Vanilla Unstyled UI is different—it gives you full control with
+          clean, minimal markup, and no styling opinions.
+          Perfect for teams building design systems, rapid prototyping, or wanting to avoid framework lock-in.
+        </p>
+      </div>
+
+      <!-- Use Cases Section -->
+      <div class="">
+        <h2 class="text-3xl font-bold text-center mb-10">Perfect For</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700 text-lg max-w-4xl mx-auto">
+          <li>✅ Tailwind developers who want full styling freedom</li>
+          <li>✅ Alpine.js users looking for lightweight, reactive UI building blocks</li>
+          <li>✅ Teams building custom design systems from scratch</li>
+          <li>✅ Projects where performance and file size matter</li>
+          <li>✅ Rapid prototyping without UI constraints</li>
+        </ul>
+      </div>
+
+      <!-- CTA Section -->
+      <div class=" text-center">
+        <h2 class="text-2xl font-semibold mb-4">Ready to build your UI your way?</h2>
+        <p class="text-gray-600 mb-6">Explore the components, customize them freely, and start shipping fast.</p>
+        <a href="#docs" class="inline-block bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition">Get
+          Started</a>
+      </div>
+    </section>
     <div class="flex flex-col gap-5 w-full">
       <div class="flex justify-between border-b pb-3 items-center"
         @click.stop="tabOpened = tabOpened === 'buttons' ? '' : 'buttons'">
@@ -583,7 +646,10 @@
           </div>
 
           <template id="basic-modal">
-            <button class="btn" @click="$store.modal.openModal()">Open Modal</button>
+            <button class="btn" @click="$store.modal.openModal({ title:'A Simple Basic Modal',
+              body:'Hello world!',
+              okText:'Exit'})">Open
+              Modal</button>
           </template>
         </div>
         <p class="text-gray-600 text-base">
@@ -623,10 +689,10 @@
             <button class="btn" @click="$store.modal.openModal({
             title:'Never Gonna Give You Up',
             bodyID:'custom-modal-body',
-            footerID:'custom-modal-footer'})"> Open Modal
+            footerID:'custom-modal-footer'
+            })"> Open Modal
             </button>
           </template>
-
         </div>
         <p class="text-gray-600 text-base">Then Reference The Partials Modal with template</p>
         <div class="card w-full" x-data="renderSourceCode('custom-modal-video')">
@@ -646,12 +712,26 @@
               </template>
             </template>
           </template>
-
         </div>
         <template id="custom-modal-footer">
           <div></div>
         </template>
-
+        <p class="text-gray-600 text-base">You can even change the container, by passing the container ID</p>
+        <div class="card w-full" x-data="renderSourceCode('preview-changed-container')">
+          <div class="bg-[#23262E] text-white w-full rounded-lg">
+            <pre>
+                        <div x-html="highlightedCode"></div>
+                      </pre>
+          </div>
+        </div>
+        <template id="preview-changed-container">
+          <template x-teleport="body">
+            <template id="custom-modal-container">
+              <div class="modal bg-transparent shadow-none">
+              </div>
+            </template>
+          </template>
+        </template>
       </div>
     </div>
 
