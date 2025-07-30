@@ -1,9 +1,10 @@
 {
   "name": "vanilla-unstyled-ui",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "type": "module",
   "description": "A collection of Unstyled UI components for Tailwind CSS",
   "main": "dist/index.css",
+  "homepage": "https://github.com/felixa1243/classic-ui",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/felixa1243/classic-ui.git"
