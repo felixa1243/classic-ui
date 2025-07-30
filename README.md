@@ -24,7 +24,26 @@ Perfect for developers who want full design control without reinventing the stru
 Install using your preferred package manager:
 
 ```
-npm install vanilla-unstyled-ui
+npm install tailwindcss alpinejs vanilla-unstyled-ui
+```
+
+And then in your css file add this line
+
+```css
+@import "tailwindcss";
+```
+
+<br/>
+after that you should import our package to js file in order to make it works..<br/>
+
+```js
+import Alpine from "alpinejs";
+import { VanillaUnstyledUI } from "vanilla-unstyled-ui";
+
+const vanillaUnstyledUI = new VanillaUnstyledUI();
+vanillaUnstyledUI.install();
+
+Alpine.start();
 ```
 
 🧪 Usage
