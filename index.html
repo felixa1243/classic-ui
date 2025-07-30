@@ -72,6 +72,18 @@
         <p class="text-gray-600 mb-6">Explore the components, customize them freely, and start shipping fast.</p>
         <a href="#docs" class="inline-block bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition">Get
           Started</a>
+        <div class="card flex flex-col mt-3" x-data="installation">
+          <p class="text-gray-600">Installation Guide</p>
+          <div class="flex flex-col gap-3">
+            <template x-for="highlightedCode in highlightedCodes">
+              <pre class="w-full text-left ">
+                          <div class="bg-[#23262E] p-5 text-white w-full rounded-lg" x-html="highlightedCode"></div>
+                        </pre>
+            </template>
+          </div>
+        </div>
+        <template id="installation-guide">
+        </template>
       </div>
     </section>
     <div class="flex flex-col gap-5 w-full">
@@ -744,7 +756,7 @@
     </div>
   </template>
   <script type="module" src="/src/highlighter.js"></script>
-  <script type="module" src="/src/main.js"></script>
+  <script type="module" src="/src/web.js"></script>
 </body>
 
 </html>

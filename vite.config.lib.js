@@ -10,6 +10,7 @@ export default defineConfig({
             name: 'classic-ui',
             entry: resolve(__dirname, 'src/main.js'),
         },
+        copyPublicDir: false,
         outDir: 'dist',
         cssCodeSplit: false,
         cssMinify: true,
