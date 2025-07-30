@@ -61,11 +61,11 @@ window.addEventListener('alpine:init', () => {
             code: `npm install vanilla-unstyled-ui alpinejs tailwindcss`,
             language: 'bash'
         }, {
-            code: `@import 'tailwindcss`,
+            code: `@import 'tailwindcss;\n@import 'vanilla-unstyled-ui/style.css'; `,
             language: 'css'
         },
         {
-            code: `import Alpine from 'alpinejs';\nimport { VanillaUnstyledUI } from 'vanilla-unstyled-ui';\n\nconst vanillaUnstyledUI = new VanillaUnstyledUI();\nvanillaUnstyledUI.install();\n\nAlpine.start();`,
+            code: `import Alpine from 'alpinejs';\nimport VanillaUnstyledUI  from 'vanilla-unstyled-ui';\nimport 'vanilla-unstyled-ui/style.css'\n\nconst vanillaUnstyledUI = new VanillaUnstyledUI();\nvanillaUnstyledUI.install();\n\nAlpine.start();`,
             language: 'javascript'
         },
         ],
