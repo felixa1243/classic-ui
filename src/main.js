@@ -1,2 +1,3 @@
 import './style.css';
-import { VanillaUI } from './components/VanillaUnstyledUI';
+import { VanillaUnstyledUI } from './components/VanillaUnstyledUI';
+export default VanillaUnstyledUI

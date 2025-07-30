@@ -38,8 +38,8 @@ after that you should import our package to js file in order to make it works..<
 
 ```js
 import Alpine from "alpinejs";
-import { VanillaUnstyledUI } from "vanilla-unstyled-ui";
-
+import VanillaUnstyledUI from "vanilla-unstyled-ui";
+import "vanilla-unstyled-ui/style.css";
 const vanillaUnstyledUI = new VanillaUnstyledUI();
 vanillaUnstyledUI.install();
 
