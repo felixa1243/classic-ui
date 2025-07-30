@@ -3,11 +3,11 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/classic-ui/vite.svg" />
+  <link rel="icon" type="image/svg+xml" href="/vanilla-classic-ui/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vanilla Unstyled UI</title>
-  <script type="module" crossorigin src="/classic-ui/assets/index-C2NnOW4A.js"></script>
-  <link rel="stylesheet" crossorigin href="/classic-ui/assets/index-By0rrScE.css">
+  <script type="module" crossorigin src="/vanilla-classic-ui/assets/index-CkYgOgHR.js"></script>
+  <link rel="stylesheet" crossorigin href="/vanilla-classic-ui/assets/index-CtftUDUr.css">
 </head>
 
 <body class="w-full h-screen flex justify-center items-center flex-col py-16" x-data="vanilla_data">
@@ -73,6 +73,18 @@
         <p class="text-gray-600 mb-6">Explore the components, customize them freely, and start shipping fast.</p>
         <a href="#docs" class="inline-block bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition">Get
           Started</a>
+        <div class="card flex flex-col mt-3" x-data="installation">
+          <p class="text-gray-600">Installation Guide</p>
+          <div class="flex flex-col gap-3">
+            <template x-for="highlightedCode in highlightedCodes">
+              <pre class="w-full text-left ">
+                          <div class="bg-[#23262E] p-5 text-white w-full rounded-lg" x-html="highlightedCode"></div>
+                        </pre>
+            </template>
+          </div>
+        </div>
+        <template id="installation-guide">
+        </template>
       </div>
     </section>
     <div class="flex flex-col gap-5 w-full">
@@ -707,7 +719,7 @@
               <template id="custom-modal-body">
                 <div class="px-16 w-full h-full py-7">
                   <video autoplay class="rounded">
-                    <source src="/classic-ui/video-highlight.mp4" />
+                    <source src="/vanilla-classic-ui/video-highlight.mp4" />
                   </video>
                 </div>
               </template>
@@ -740,7 +752,7 @@
   <template id="custom-modal-body">
     <div class="px-16 w-full h-full py-7">
       <video autoplay class="rounded">
-        <source src="/classic-ui/video-highlight.mp4" />
+        <source src="/vanilla-classic-ui/video-highlight.mp4" />
       </video>
     </div>
   </template>
